@@ -1,0 +1,17 @@
+services:
+  db:
+    image: mysql
+    container_name: db_blis
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 0987654321
+      MYSQL_DATABASE: blis_rest_api
+      MYSQL_USER: blish
+      MYSQL_PASSWORD: 0987654321
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
