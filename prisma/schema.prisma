@@ -24,6 +24,8 @@ model Users {
   updatedAt DateTime @updatedAt
 
   UserDocuments UserDocuments[]
+
+  UsersAbilities UsersAbilities[]
 }
 
 model UserDocuments {
@@ -31,7 +33,7 @@ model UserDocuments {
   name      String
   url       String
   user      Users    @relation(fields: [user_id], references: [id])
-  user_id   String   @unique
+  user_id   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -42,4 +44,17 @@ model Abilities {
   active    Boolean  @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  UsersAbilities UsersAbilities[]
+}
+
+model UsersAbilities {
+  id               String    @id @default(uuid())
+  user             Users     @relation(fields: [user_id], references: [id])
+  user_id          String
+  abilities        Abilities @relation(fields: [ability_id], references: [id])
+  ability_id       String
+  years_experience Int
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
 }
