@@ -1,0 +1,42 @@
+{
+  "name": "api_rest_blis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "ts-node src/server.ts",
+    "start:prod": "node dist/main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaov1ct0r/api_rest_blis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joaov1ct0r/api_rest_blis/issues"
+  },
+  "homepage": "https://github.com/joaov1ct0r/api_rest_blis#readme",
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^2.2.2",
+    "@types/node": "^24.7.2",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-config-standard-with-typescript": "^43.0.1",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-promise": "^6.6.0",
+    "prettier": "^3.6.2",
+    "source-map-support": "^0.5.21",
+    "ts-loader": "^9.5.4",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.16",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.9.3"
+  }
+}
