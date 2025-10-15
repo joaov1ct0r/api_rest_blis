@@ -12,19 +12,13 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
-      "@helpers/*": ["src/helpers/*"],
-      "@entities/*": ["src/entities/*"],
       "@interfaces/*": ["src/interfaces/*"],
       "@src/*": ["src/*"],
       "@utils/*": ["src/utils/*"],
-      "@mappers/*": ["src/mappers/*"],
       "@resources/*": ["src/resources/*"],
-      "@controllers/*": ["src/controllers/*"],
-      "@services/*": ["src/services/*"],
       "@pipes/*": ["src/pipes/*"],
-      "@repositories/*": ["src/repositories/*"],
-      "@guards/*": ["src/guards/*"],
-      "@middlewares/*": ["src/middlewares/*"]
+      "@middlewares/*": ["src/middlewares/*"],
+      "@users/*": ["src/users/*"]
     },
     "typeRoots": ["./src/types", "./node_modules", "./node_modules/@types"],
     "incremental": true,
