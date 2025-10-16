@@ -22,7 +22,8 @@
       "@dtos/*": ["src/dtos/*"],
       "@mappers/*": ["src/mappers/*"],
       "@errors/*": ["src/errors/*"],
-      "@services/*": ["src/services/*"]
+      "@services/*": ["src/services/*"],
+      "@controllers/*": ["src/controllers/*"]
     },
     "typeRoots": ["./src/types", "./node_modules", "./node_modules/@types"],
     "incremental": true,
