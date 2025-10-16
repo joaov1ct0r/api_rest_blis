@@ -11,6 +11,7 @@ const envSchema = z.object({
   HOST: z.string().min(1).default('localhost'),
   PORT: z.coerce.number().int().positive().default(3000),
   HASH_SALT: z.coerce.number().int().positive().default(8),
+  JWT_SECRET: z.coerce.string().min(1),
 });
 
 const parsedEnv = envSchema.safeParse(process.env);
