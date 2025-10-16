@@ -1,6 +1,7 @@
 import express, { type Router } from 'express';
 import { ZodValidation } from '@utils/zod-validation';
-import { createUserController } from '@users/singletons/index';
+import { authController } from '@auth/factories/index';
+import { createUserController } from '@users/factories/index';
 
 export const userRouter: Router = express.Router();
 
@@ -10,6 +11,10 @@ userRouter.post(
   createUserController.execute.bind(createUserController),
 );
 
-userRouter.post('/login', () => {});
+userRouter.post(
+  '/login',
+  ZodValidation.authUser,
+  authController.execute.bind(authController),
+);
 
 userRouter.post('/documents', () => {});
