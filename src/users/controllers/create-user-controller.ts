@@ -1,6 +1,6 @@
-import { BaseController } from '@controllers/base-controller';
 import { Request, Response } from 'express';
-import { ICreateUserService } from '../services/create-user-service';
+import { BaseController } from '@controllers/base-controller';
+import { ICreateUserService } from '@users/services/create-user-service';
 
 export class CreateUserController extends BaseController {
   private createUserService: ICreateUserService;
