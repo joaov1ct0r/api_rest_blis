@@ -1,18 +1,18 @@
 #!/bin/bash
 
-echo "Removing old containers... \n"
+echo "Removing old containers..."
 docker compose down
 docker system prune --all --volumes --force
-echo "OK! \n"
+echo "OK!"
 
-echo "Starting new containers... \n"
+echo "Starting new containers..."
 docker compose up -d
-echo "OK! \n"
+echo "OK!"
 
-echo "Checking for missing migrations... \n"
+echo "Checking for missing migrations..."
 npx prisma migrate dev
-echo "OK! \n"
+echo "OK!"
 
-echo "Starting API... \n"
+echo "Starting API..."
 npx ts-node-dev -r tsconfig-paths/register src/index.ts
-echo "OK! \n"
+echo "OK!"
