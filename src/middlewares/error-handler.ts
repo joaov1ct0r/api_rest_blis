@@ -1,7 +1,14 @@
-import type { Request, Response } from 'express';
+import type { NextFunction, Request, Response } from 'express';
 
 export class ErrorHandler {
-  static execute(_req: Request, res: Response) {
-    res.status(404).send();
+  execute(error: any, _req: Request, res: Response, _next: NextFunction) {
+    if (error && error.statusCode && error.message) {
+      return res.status(400).json({ message: error.message, status: 400 });
+    }
+
+    return res.status(500).json({
+      message: 'Internal server error',
+      status: 500,
+    });
   }
 }

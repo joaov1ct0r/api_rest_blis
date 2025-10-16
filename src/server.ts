@@ -1,7 +1,7 @@
 import cors from 'cors';
 import helmet from 'helmet';
 import { env } from '@utils/env-config';
-import express, { Express } from 'express';
+import express, { Express, NextFunction, Request, Response } from 'express';
 import swaggerUi from 'swagger-ui-express';
 import { swaggerSpec } from '@utils/swagger-config';
 import { userRouter } from '@users/routes/user-routes';
@@ -9,6 +9,8 @@ import { ErrorHandler } from '@middlewares/error-handler';
 import swaggerDocument from '../swagger.json';
 
 const app: Express = express();
+
+const errorHandler = new ErrorHandler();
 
 app.set('trust proxy', true);
 
@@ -25,6 +27,8 @@ app.use(
   swaggerUi.setup(swaggerDocument, swaggerSpec),
 );
 
-app.use(ErrorHandler.execute);
+app.use((error: any, req: Request, res: Response, next: NextFunction) => {
+  errorHandler.execute(error, req, res, next);
+});
 
 export { app };

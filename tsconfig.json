@@ -16,14 +16,15 @@
       "@src/*": ["src/*"],
       "@utils/*": ["src/utils/*"],
       "@resources/*": ["src/resources/*"],
-      "@pipes/*": ["src/pipes/*"],
       "@middlewares/*": ["src/middlewares/*"],
       "@users/*": ["src/users/*"],
+      "@auth/*": ["src/auth/*"],
       "@dtos/*": ["src/dtos/*"],
       "@mappers/*": ["src/mappers/*"],
       "@errors/*": ["src/errors/*"],
       "@services/*": ["src/services/*"],
-      "@controllers/*": ["src/controllers/*"]
+      "@controllers/*": ["src/controllers/*"],
+      "@common/*": ["src/common/*"]
     },
     "typeRoots": ["./src/types", "./node_modules", "./node_modules/@types"],
     "incremental": true,
