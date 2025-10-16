@@ -10,6 +10,7 @@ const envSchema = z.object({
     .default('development'),
   HOST: z.string().min(1).default('localhost'),
   PORT: z.coerce.number().int().positive().default(3000),
+  HASH_SALT: z.coerce.number().int().positive().default(8),
 });
 
 const parsedEnv = envSchema.safeParse(process.env);
