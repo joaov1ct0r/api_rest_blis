@@ -1,22 +1,16 @@
-import { PrismaProvider } from '@src/utils/prisma-provider';
 import { Users } from 'generated/prisma';
+import { PrismaProvider } from '@utils/prisma-provider';
+import { ICreateUserDTO } from '@users/dtos/create-user-dto';
 
 export interface ICreateUserRepository {
-  execute(userDTO: CreateUserDTO): Promise<Users>;
-}
-
-export interface CreateUserDTO {
-  name: string;
-  birthdate: Date;
-  email: string;
-  password: string;
+  execute(userDTO: ICreateUserDTO): Promise<Users>;
 }
 
 export class CreateUserRepository
   extends PrismaProvider
   implements ICreateUserRepository
 {
-  public async execute(userDTO: CreateUserDTO): Promise<Users> {
+  public async execute(userDTO: ICreateUserDTO): Promise<Users> {
     const createdUser = await this.prisma.users.create({ data: userDTO });
 
     return createdUser;
