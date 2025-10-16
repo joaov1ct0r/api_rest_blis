@@ -18,7 +18,11 @@
       "@resources/*": ["src/resources/*"],
       "@pipes/*": ["src/pipes/*"],
       "@middlewares/*": ["src/middlewares/*"],
-      "@users/*": ["src/users/*"]
+      "@users/*": ["src/users/*"],
+      "@dtos/*": ["src/dtos/*"],
+      "@mappers/*": ["src/mappers/*"],
+      "@errors/*": ["src/errors/*"],
+      "@services/*": ["src/services/*"]
     },
     "typeRoots": ["./src/types", "./node_modules", "./node_modules/@types"],
     "incremental": true,
