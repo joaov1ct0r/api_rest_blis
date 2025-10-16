@@ -33,8 +33,10 @@ export class CreateUserService
       userDTO.email,
     );
 
-    if (isEmailRegistered !== null) {
-      this.badRequest('Email não disponível!');
+    const emailIsNotAvailable = isEmailRegistered !== null;
+
+    if (emailIsNotAvailable) {
+      throw this.badRequest('Email não disponível!');
     }
 
     userDTO.birthdate = dayjs(userDTO.birthdate).toISOString();
