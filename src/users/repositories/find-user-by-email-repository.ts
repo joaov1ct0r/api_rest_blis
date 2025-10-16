@@ -1,4 +1,4 @@
-import { PrismaProvider } from '@src/utils/prisma-provider';
+import { PrismaProvider } from '@utils/prisma-provider';
 import { Users } from 'generated/prisma';
 
 export interface IFindUserByEmailRepository {
