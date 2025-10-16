@@ -1,5 +1,5 @@
-import { CreateUserController } from '@users/controllers/create-user-controller';
 import { CreateUserService } from '@users/services/create-user-service';
+import { CreateUserController } from '@users/controllers/create-user-controller';
 import { CreateUserRepository } from '@users/repositories/create-user-repository';
 import { FindUserByEmailRepository } from '@users/repositories/find-user-by-email-repository';
 
