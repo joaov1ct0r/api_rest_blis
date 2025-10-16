@@ -7,6 +7,4 @@ const createUserBodySchema = z.object({
   password: z.string({ error: 'Senha é obrigatória!' }),
 });
 
-type ICreateUserBodySchema = z.infer<typeof createUserBodySchema>;
-
-export { createUserBodySchema, ICreateUserBodySchema };
+export { createUserBodySchema };
