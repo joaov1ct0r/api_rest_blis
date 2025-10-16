@@ -4,7 +4,11 @@ import { createUserController } from '@users/singletons/index';
 
 export const userRouter: Router = express.Router();
 
-userRouter.post('/', ZodValidation.createUser, createUserController.execute);
+userRouter.post(
+  '/',
+  ZodValidation.createUser,
+  createUserController.execute.bind(createUserController),
+);
 
 userRouter.post('/login', () => {});
 
