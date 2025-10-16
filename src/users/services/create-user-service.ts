@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import bcrypt from 'bcrypt';
 import { env } from '@utils/env-config';
 import { IUserDTO } from '@users/dtos/user-dto';
@@ -35,6 +36,8 @@ export class CreateUserService
     if (isEmailRegistered !== null) {
       this.badRequest('Email não disponível!');
     }
+
+    userDTO.birthdate = dayjs(userDTO.birthdate).toISOString();
 
     userDTO.password = bcrypt.hashSync(userDTO.password, env.HASH_SALT);
 
