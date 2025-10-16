@@ -1,0 +1,135 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API Docs",
+    "description": "Documentação da API Blis",
+    "version": "1.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/docs",
+  "produces": ["application/json"],
+  "paths": {
+    "/users": {
+      "post": {
+        "summary": "Criar um novo usuário",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateUserDTO"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Usuário criado com sucesso!",
+            "schema": {
+              "$ref": "#/definitions/UserDTO"
+            },
+            "examples": {
+              "application/json": {
+                "name": "John Doe",
+                "birthdate": "09/15/2001",
+                "email": "johndoe@mail.com",
+                "password": "any_password"
+              }
+            }
+          },
+          "400": {
+            "description": "Falha ao criar usuário!"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Users": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "c75f7c66-e858-47d6-bb82-7ea5547c800c"
+        },
+        "name": {
+          "type": "string",
+          "example": "John Doe"
+        },
+        "birthdate": {
+          "type": "string",
+          "example": "09/15/2001"
+        },
+        "email": {
+          "type": "string",
+          "example": "johndoe@mail.com"
+        },
+        "password": {
+          "type": "string",
+          "example": "any_password"
+        },
+        "created_at": {
+          "type": "string",
+          "example": "2001-09-15T03:00:00.000Z"
+        },
+        "updated_at": {
+          "type": "string",
+          "example": "2001-09-15T03:00:00.000Z"
+        }
+      },
+      "required": true
+    },
+    "UserDTO": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "c75f7c66-e858-47d6-bb82-7ea5547c800c"
+        },
+        "name": {
+          "type": "string",
+          "example": "John Doe"
+        },
+        "birthdate": {
+          "type": "string",
+          "example": "09/15/2001"
+        },
+        "email": {
+          "type": "string",
+          "example": "johndoe@mail.com"
+        },
+        "created_at": {
+          "type": "string",
+          "example": "2001-09-15T03:00:00.000Z"
+        },
+        "updated_at": {
+          "type": "string",
+          "example": "2001-09-15T03:00:00.000Z"
+        }
+      },
+      "required": true
+    },
+    "CreateUserDTO": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "John Doe"
+        },
+        "birthdate": {
+          "type": "string",
+          "example": "09/15/2001"
+        },
+        "email": {
+          "type": "string",
+          "example": "johndoe@mail.com"
+        },
+        "password": {
+          "type": "string",
+          "example": "any_password"
+        }
+      },
+      "required": true
+    }
+  }
+}
