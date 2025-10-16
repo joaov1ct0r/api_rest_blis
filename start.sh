@@ -14,5 +14,5 @@ npx prisma migrate dev
 echo "OK! \n"
 
 echo "Starting API... \n"
-npx ts-node src/server.ts
+npx ts-node -r tsconfig-paths/register src/index.ts
 echo "OK! \n"
