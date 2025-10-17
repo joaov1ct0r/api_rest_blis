@@ -9,6 +9,43 @@
   "basePath": "/docs",
   "produces": ["application/json"],
   "paths": {
+    "/users/documents": {
+      "post": {
+        "summary": "Fazer upload de documento",
+        "tags": ["Documents"],
+        "consumes": "multipart/form-data",
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "document",
+            "type": "file",
+            "schema": {
+              "$ref": "#/definitions/UserDocumentsDTO"
+            },
+            "description": "Arquivo a ser enviado"
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "201": {
+            "description": "Upload de arquivo realizado com sucesso!",
+            "schema": {
+              "$ref": "#/definitions/UserDTO"
+            }
+          },
+          "401": {
+            "description": "Não autorizado!"
+          },
+          "403": {
+            "description": "Acesso negado!"
+          }
+        },
+        "security": [
+          { "BearerAuth": [] }
+        ]
+      }
+    },
+
     "/users": {
       "post": {
         "summary": "Criar um novo usuário",
@@ -84,6 +121,36 @@
     }
   },
   "definitions": {
+    "UserDocumentsDTO": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "c75f7c66-e858-47d6-bb82-7ea5547c800c"
+        },
+        "name": {
+          "type": "string",
+          "example": "any_file_name.pdf"
+        },
+        "url": {
+          "type": "string",
+          "example": "any_url"
+        },
+        "user_id": {
+          "type": "string",
+          "example": "c75f7c66-e858-47d6-bb82-7ea5547c800c"
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2001-09-15T03:00:00.000Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2001-09-15T03:00:00.000Z"
+        }
+      },
+      "required": true
+    },
     "Users": {
       "type": "object",
       "properties": {
