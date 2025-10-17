@@ -14,5 +14,5 @@ npx prisma migrate dev
 echo "OK!"
 
 echo "Starting API..."
-npx ts-node-dev -r tsconfig-paths/register src/index.ts
+npx ts-node-dev --transpile-only -r tsconfig-paths/register src/index.ts
 echo "OK!"

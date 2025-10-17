@@ -24,20 +24,16 @@
       "@errors/*": ["src/errors/*"],
       "@services/*": ["src/services/*"],
       "@controllers/*": ["src/controllers/*"],
-      "@common/*": ["src/common/*"]
+      "@common/*": ["src/common/*"],
+      "@documents/*": ["src/documents/*"]
     },
-    "typeRoots": ["./src/types", "./node_modules", "./node_modules/@types"],
     "incremental": true,
     "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": true,
     "noImplicitAny": true,
-    "strictBindCallApply": false,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": false,
-    "types": [""],
     "resolveJsonModule": true
   },
-  "exclude": ["./node_modules", "./build"],
-  "include": ["./src/**/*.ts", "./src/types/*.d.ts"]
+  "include": ["src/**/*.ts", "src/types/**/*.d.ts"],
+  "exclude": ["node_modules", "build"]
 }
