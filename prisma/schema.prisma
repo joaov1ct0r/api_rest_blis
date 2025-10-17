@@ -41,7 +41,7 @@ model UserDocuments {
 model Abilities {
   id        String   @id @default(uuid())
   name      String
-  active    Boolean  @default(false)
+  active    Boolean  @default(true)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
