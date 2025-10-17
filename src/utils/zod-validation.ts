@@ -4,6 +4,7 @@ import { BaseController } from '@controllers/base-controller';
 import { authUserBodySchema } from '@auth/schemas/auth-user-body-schema';
 import { createUserBodySchema } from '@users/schemas/create-user-body-schema';
 import { validateFile } from '@documents/schemas/create-user-documents-body-schema';
+import { createAbilityBodySchema } from '@abilities/schemas/create-ability-body-schema';
 
 export class ZodValidation extends BaseController {
   static createUser(req: Request, res: Response, next: NextFunction) {
@@ -16,6 +17,10 @@ export class ZodValidation extends BaseController {
 
   static authUser(req: Request, res: Response, next: NextFunction) {
     ZodValidation.execute(req, res, next, authUserBodySchema);
+  }
+
+  static createAbility(req: Request, res: Response, next: NextFunction) {
+    ZodValidation.execute(req, res, next, createAbilityBodySchema);
   }
 
   static executeFile(
