@@ -25,7 +25,8 @@
       "@services/*": ["src/services/*"],
       "@controllers/*": ["src/controllers/*"],
       "@common/*": ["src/common/*"],
-      "@documents/*": ["src/documents/*"]
+      "@documents/*": ["src/documents/*"],
+      "@abilities/*": ["src/abilities/*"]
     },
     "incremental": true,
     "skipLibCheck": true,

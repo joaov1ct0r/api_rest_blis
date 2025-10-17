@@ -1,9 +1,6 @@
 import { Abilities } from 'generated/prisma';
 import { PrismaProvider } from '@utils/prisma-provider';
-
-export interface ICreateAbilityDTO {
-  name: string;
-}
+import { ICreateAbilityDTO } from '@abilities/dtos/create-ability-dto';
 
 export interface ICreateAbilityRepository {
   execute(dto: ICreateAbilityDTO): Promise<Abilities>;
