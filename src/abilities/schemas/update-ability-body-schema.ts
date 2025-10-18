@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 const updateAbilityBodySchema = z.object({
-  name: z.string({ error: 'Nome é obrigatório!' }),
+  active: z.string({ error: 'Active é obrigatório!' }),
 });
 
 export { updateAbilityBodySchema };
