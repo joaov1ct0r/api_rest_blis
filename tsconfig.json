@@ -26,7 +26,8 @@
       "@controllers/*": ["src/controllers/*"],
       "@common/*": ["src/common/*"],
       "@documents/*": ["src/documents/*"],
-      "@abilities/*": ["src/abilities/*"]
+      "@abilities/*": ["src/abilities/*"],
+      "@users-abilities/*": ["src/users-abilities/*"]
     },
     "incremental": true,
     "skipLibCheck": true,
