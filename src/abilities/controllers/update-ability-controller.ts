@@ -11,7 +11,7 @@ export class UpdateAbilityController extends BaseController {
   }
 
   public async execute(req: Request, res: Response) {
-    await this.updateAbilityService.execute(req.body, req.userId!);
+    await this.updateAbilityService.execute(req.body);
 
     return res.status(204).send();
   }
