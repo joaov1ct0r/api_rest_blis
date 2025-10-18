@@ -33,12 +33,8 @@
               "$ref": "#/definitions/UserDTO"
             }
           },
-          "401": {
-            "description": "Token JWT não encontrado!"
-          },
-          "403": {
-            "description": "Token JWT invalido!"
-          }
+          "401": { "$ref": "#/responses/Unauthorized" },
+          "403": { "$ref": "#/responses/Forbidden" }
         },
         "security": [
           { "BearerAuth": [] }
@@ -96,10 +92,10 @@
             }
           },
           "400": {
-            "description": "Falha ao criar usuário!"
+            "description": "Usuário não encontrado!"
           },
           "401": {
-            "description": "Falha na autenticação"
+            "description": "Falha na autenticação!"
           }
         }
       }
@@ -126,13 +122,46 @@
               "$ref": "#/definitions/AbilityDTO"
             }
           },
-          "401": { "description": "Token JWT não encontrado!" },
-          "403": { "description": "Token JWT invalido!" }
+          "401": { "$ref": "#/responses/Unauthorized" },
+          "403": { "$ref": "#/responses/Forbidden" }
+        },
+        "security": [
+          { "BearerAuth": [] }
+        ]
+      },
+
+      "put": {
+        "summary": "Atualizar uma habilidade",
+        "tags": ["Abilities"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdateAbilityDTO"
+            }
+          }
+        ],
+        "responses": {
+          "204": { "$ref": "#/responses/NoContent" },
+          "401": { "$ref": "#/responses/Unauthorized" },
+          "403": { "$ref": "#/responses/Forbidden" }
         },
         "security": [
           { "BearerAuth": [] }
         ]
       }
+    }
+  },
+  "responses": {
+    "NoContent": {
+      "description": "Conteudo atualizado com sucesso!"
+    },
+    "Unauthorized": {
+      "description": "Token JWT não encontrado!"
+    },
+    "Forbidden": {
+      "description": "Token JWT invalido!"
     }
   },
   "securityDefinitions": {
@@ -332,6 +361,19 @@
         }
       },
       "required": true
+    },
+    "UpdateAbilityDTO": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "c75f7c66-e858-47d6-bb82-7ea5547c800c"
+        },
+        "active": {
+          "type": "boolean",
+          "example": true
+        }
+      }
     }
   }
 }

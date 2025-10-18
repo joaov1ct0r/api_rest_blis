@@ -5,7 +5,7 @@ import { IUpdateAbilityDTO } from '@abilities/dtos/update-ability-dto';
 import { IUpdateAbilityRepository } from '@abilities/repositories/update-ability-repository';
 
 export interface IUpdateAbilityService {
-  execute(dto: IUpdateAbilityDTO, id: string): Promise<IAbilityDTO>;
+  execute(dto: IUpdateAbilityDTO): Promise<IAbilityDTO>;
 }
 
 export class UpdateAbilityService
@@ -19,11 +19,11 @@ export class UpdateAbilityService
     this.updateAbilityRepository = updateAbilityRepository;
   }
 
-  public async execute(
-    dto: IUpdateAbilityDTO,
-    id: string,
-  ): Promise<IAbilityDTO> {
-    const updatedAbility = await this.updateAbilityRepository.execute(dto, id);
+  public async execute(dto: IUpdateAbilityDTO): Promise<IAbilityDTO> {
+    const updatedAbility = await this.updateAbilityRepository.execute(
+      dto.active,
+      dto.id,
+    );
 
     return AbilityMapper.execute(updatedAbility);
   }
