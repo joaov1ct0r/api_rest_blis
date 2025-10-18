@@ -6,10 +6,15 @@ import { createUserBodySchema } from '@users/schemas/create-user-body-schema';
 import { validateFile } from '@documents/schemas/create-user-documents-body-schema';
 import { createAbilityBodySchema } from '@abilities/schemas/create-ability-body-schema';
 import { updateAbilityBodySchema } from '@abilities/schemas/update-ability-body-schema';
+import { createUsersAbilitiesBodySchema } from '@users-abilities/schemas/create-users-abilities-body-schema';
 
 export class ZodValidation extends BaseController {
   static createUser(req: Request, res: Response, next: NextFunction) {
     ZodValidation.execute(req, res, next, createUserBodySchema);
+  }
+
+  static createUsersAbilities(req: Request, res: Response, next: NextFunction) {
+    ZodValidation.execute(req, res, next, createUsersAbilitiesBodySchema);
   }
 
   static createUserDocuments(req: Request, res: Response, next: NextFunction) {
