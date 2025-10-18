@@ -12,7 +12,7 @@ export interface ICreateUsersAbilitiesService {
   execute(dto: ICreateUsersAbilitiesDTO): Promise<IUsersAbilitiesDTO>;
 }
 
-export class CreateUserAbilityService
+export class CreateUsersAbilitiesService
   extends BaseService
   implements ICreateUsersAbilitiesService
 {

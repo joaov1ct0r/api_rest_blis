@@ -6,7 +6,7 @@ export interface ICreateUsersAbilitiesRepository {
   execute(dto: ICreateUsersAbilitiesDTO): Promise<UsersAbilities>;
 }
 
-export class CreateUserAbilityRepository
+export class CreateUsersAbilitiesRepository
   extends PrismaProvider
   implements ICreateUsersAbilitiesRepository
 {
