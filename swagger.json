@@ -34,10 +34,10 @@
             }
           },
           "401": {
-            "description": "Não autorizado!"
+            "description": "Token JWT não encontrado!"
           },
           "403": {
-            "description": "Acesso negado!"
+            "description": "Token JWT invalido!"
           }
         },
         "security": [
@@ -70,12 +70,10 @@
           "400": {
             "description": "Falha ao criar usuário!"
           }
-        },
-        "security": [
-          { "BasicAuth": [] }
-        ]
+        }
       }
     },
+
     "/users/login": {
       "post": {
         "summary": "Login",
@@ -103,9 +101,36 @@
           "401": {
             "description": "Falha na autenticação"
           }
+        }
+      }
+    },
+
+    "/abilities": {
+      "post": {
+        "summary": "Criar uma nova habilidade",
+        "tags": ["Abilities"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateAbilityDTO"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "201": {
+            "description": "Habilidade criada com sucesso!",
+            "schema": {
+              "$ref": "#/definitions/AbilityDTO"
+            }
+          },
+          "401": { "description": "Token JWT não encontrado!" },
+          "403": { "description": "Token JWT invalido!" }
         },
         "security": [
-          { "BasicAuth": [] }
+          { "BearerAuth": [] }
         ]
       }
     }
@@ -271,6 +296,42 @@
           "example": "Autenticação realizada com sucesso!"
         }
       }
+    },
+    "CreateAbilityDTO": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Médico"
+        }
+      },
+      "required": true
+    },
+    "AbilityDTO": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "c75f7c66-e858-47d6-bb82-7ea5547c800c"
+        },
+        "name": {
+          "type": "string",
+          "example": "John Doe"
+        },
+        "active": {
+          "type": "boolean",
+          "example": true
+        },
+        "created_at": {
+          "type": "string",
+          "example": "2001-09-15T03:00:00.000Z"
+        },
+        "updated_at": {
+          "type": "string",
+          "example": "2001-09-15T03:00:00.000Z"
+        }
+      },
+      "required": true
     }
   }
 }
