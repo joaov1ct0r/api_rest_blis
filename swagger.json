@@ -9,39 +9,6 @@
   "basePath": "/docs",
   "produces": ["application/json"],
   "paths": {
-    "/users/documents": {
-      "post": {
-        "summary": "Fazer upload de documento",
-        "tags": ["Documents"],
-        "consumes": "multipart/form-data",
-        "parameters": [
-          {
-            "in": "formData",
-            "name": "document",
-            "type": "file",
-            "schema": {
-              "$ref": "#/definitions/UserDocumentsDTO"
-            },
-            "description": "Arquivo a ser enviado"
-          }
-        ],
-        "produces": ["application/json"],
-        "responses": {
-          "201": {
-            "description": "Upload de arquivo realizado com sucesso!",
-            "schema": {
-              "$ref": "#/definitions/UserDTO"
-            }
-          },
-          "401": { "$ref": "#/responses/Unauthorized" },
-          "403": { "$ref": "#/responses/Forbidden" }
-        },
-        "security": [
-          { "BearerAuth": [] }
-        ]
-      }
-    },
-
     "/users": {
       "post": {
         "summary": "Criar um novo usuário",
@@ -98,6 +65,70 @@
             "description": "Falha na autenticação!"
           }
         }
+      }
+    },
+    
+    "/users/documents": {
+      "post": {
+        "summary": "Fazer upload de documento",
+        "tags": ["Documents"],
+        "consumes": "multipart/form-data",
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "document",
+            "type": "file",
+            "schema": {
+              "$ref": "#/definitions/UserDocumentsDTO"
+            },
+            "description": "Arquivo a ser enviado"
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "201": {
+            "description": "Upload de arquivo realizado com sucesso!",
+            "schema": {
+              "$ref": "#/definitions/UserDTO"
+            }
+          },
+          "401": { "$ref": "#/responses/Unauthorized" },
+          "403": { "$ref": "#/responses/Forbidden" }
+        },
+        "security": [
+          { "BearerAuth": [] }
+        ]
+      }
+    },
+
+    "/users/abilities": {
+      "post": {
+        "summary": "Adicionar uma habilidade a um usuário",
+        "tags": ["UsersAbilities"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateUsersAbilitiesDTO"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "201": {
+            "description": "Habilidade adicionada ao usuário com sucesso!",
+            "schema": {
+              "$ref": "#/definitions/UsersAbilitiesDTO"
+            }
+          },
+          "400": { "$ref": "#/responses/BadRequest" },
+          "401": { "$ref": "#/responses/Unauthorized" },
+          "403": { "$ref": "#/responses/Forbidden" }
+        },
+        "security": [
+          { "BearerAuth": [] }
+        ]
       }
     },
 
@@ -157,6 +188,9 @@
     "NoContent": {
       "description": "Conteudo atualizado com sucesso!"
     },
+    "BadRequest": {
+      "description": "Falha ao realizar ação!"
+    },
     "Unauthorized": {
       "description": "Token JWT não encontrado!"
     },
@@ -175,6 +209,52 @@
     }
   },
   "definitions": {
+    "UsersAbilitiesDTO": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "example": "c75f7c66-e858-47d6-bb82-7ea5547c800c"
+        },
+        "ability_id": {
+          "type": "string",
+          "example": "c75f7c66-e858-47d6-bb82-7ea5547c800c"
+        },
+        "years_experience": {
+          "type": "number",
+          "example": 3
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2001-09-15T03:00:00.000Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2001-09-15T03:00:00.000Z"
+        }
+      },
+      "required": true
+    },
+
+    "CreateUsersAbilitiesDTO": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "example": "c75f7c66-e858-47d6-bb82-7ea5547c800c"
+        },
+        "ability_id": {
+          "type": "string",
+          "example": "c75f7c66-e858-47d6-bb82-7ea5547c800c"
+        },
+        "years_experience": {
+          "type": "number",
+          "example": 3
+        }
+      },
+      "required": true
+    },
+
     "UserDocumentsDTO": {
       "type": "object",
       "properties": {
@@ -205,6 +285,7 @@
       },
       "required": true
     },
+
     "Users": {
       "type": "object",
       "properties": {
@@ -239,6 +320,7 @@
       },
       "required": true
     },
+
     "UserDTO": {
       "type": "object",
       "properties": {
@@ -269,6 +351,7 @@
       },
       "required": true
     },
+
     "CreateUserDTO": {
       "type": "object",
       "properties": {
@@ -291,6 +374,7 @@
       },
       "required": true
     },
+
     "AuthDTO": {
       "type": "object",
       "properties": {
@@ -305,6 +389,7 @@
       },
       "required": true
     },
+
     "AuthResponseDTO": {
       "type": "object",
       "properties": {
@@ -326,6 +411,7 @@
         }
       }
     },
+
     "CreateAbilityDTO": {
       "type": "object",
       "properties": {
@@ -336,6 +422,7 @@
       },
       "required": true
     },
+
     "AbilityDTO": {
       "type": "object",
       "properties": {
@@ -362,6 +449,7 @@
       },
       "required": true
     },
+
     "UpdateAbilityDTO": {
       "type": "object",
       "properties": {
