@@ -5,7 +5,10 @@ import { createUserController } from '@users/factories/index';
 import { createUserDocumentsController } from '@documents/factories/index';
 import { upload } from '@utils/multer-config';
 import { authorization } from '@middlewares/authorization';
-import { createUsersAbilitiesController } from '@users-abilities/factories/index';
+import {
+  createUsersAbilitiesController,
+  deleteUsersAbilitiesController,
+} from '@users-abilities/factories/index';
 
 export const userRouter: Router = express.Router();
 
@@ -34,4 +37,11 @@ userRouter.post(
   authorization.execute,
   ZodValidation.createUsersAbilities,
   createUsersAbilitiesController.execute.bind(createUsersAbilitiesController),
+);
+
+userRouter.delete(
+  '/abilities',
+  authorization.execute,
+  ZodValidation.deleteUsersAbilities,
+  deleteUsersAbilitiesController.execute.bind(deleteUsersAbilitiesController),
 );
