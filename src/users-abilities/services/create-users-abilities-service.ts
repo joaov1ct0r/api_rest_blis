@@ -50,6 +50,6 @@ export class CreateUsersAbilitiesService
     const createdUserAbility =
       await this.createUsersAbilitiesRepository.execute(dto);
 
-    return UsersAbilitiesMapper.toDTO(createdUserAbility);
+    return UsersAbilitiesMapper.execute(createdUserAbility);
   }
 }
