@@ -7,8 +7,13 @@ import { validateFile } from '@documents/schemas/create-user-documents-body-sche
 import { createAbilityBodySchema } from '@abilities/schemas/create-ability-body-schema';
 import { updateAbilityBodySchema } from '@abilities/schemas/update-ability-body-schema';
 import { createUsersAbilitiesBodySchema } from '@users-abilities/schemas/create-users-abilities-body-schema';
+import { deleteUsersAbilitiesBodySchema } from '@users-abilities/schemas/delete-users-abilities-body-schema';
 
 export class ZodValidation extends BaseController {
+  static deleteUsersAbilities(req: Request, res: Response, next: NextFunction) {
+    ZodValidation.execute(req, res, next, deleteUsersAbilitiesBodySchema);
+  }
+
   static createUser(req: Request, res: Response, next: NextFunction) {
     ZodValidation.execute(req, res, next, createUserBodySchema);
   }
