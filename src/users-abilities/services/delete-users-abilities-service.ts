@@ -31,15 +31,19 @@ export class DeleteUsersAbilitiesService
       const usersAbilitiesIsNotRegistered = usersAbilities === null;
 
       if (usersAbilitiesIsNotRegistered) {
-        throw this.badRequest('Habilidade não encontrada!');
+        throw this.badRequest(`Habilidade com id: ${id} não encontrada!`);
       }
 
       const usersAbilitiesIsNotInUser = usersAbilities.user_id !== user_id;
 
       if (usersAbilitiesIsNotInUser) {
-        throw this.badRequest('Habilidade não vínculada ao usuário!');
+        throw this.badRequest(
+          `Habilidade com id: ${id} não vínculada ao usuário!`,
+        );
       }
+    }
 
+    for (const id of ids) {
       await this.deleteUsersAbilitiesByIdRepository.execute(id);
     }
   }
