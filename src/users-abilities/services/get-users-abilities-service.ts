@@ -38,10 +38,8 @@ export class GetUsersAbilitiesService
         pageNumber,
       });
 
-    const usersAbilitiesManyDTO = usersAbilities.map((usersAbilities) =>
+    return usersAbilities.map((usersAbilities) =>
       UsersAbilitiesMapper.manyExecute(usersAbilities),
     );
-
-    return usersAbilitiesManyDTO;
   }
 }
