@@ -26,16 +26,16 @@ export class GetUsersAbilitiesService
 
   public async execute({
     user_id,
-    pageSize = 20,
-    skipAmount = 0,
-    pageNumber = 1,
+    amount,
+    page,
+    skipAmount,
   }: IGetUsersAbilitiesByUserIdDTO): Promise<IUsersAbilitiesManyDTO[]> {
     const usersAbilities =
       await this.getUsersAbilitiesByUserIdRepository.execute({
         user_id,
-        skipAmount: skipAmount ? skipAmount : (pageNumber - 1) * pageSize,
-        pageSize,
-        pageNumber,
+        skipAmount,
+        page,
+        amount,
       });
 
     return usersAbilities.map((usersAbilities) =>

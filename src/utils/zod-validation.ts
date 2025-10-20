@@ -12,7 +12,7 @@ import { getUsersAbilitiesBodySchema } from '@users-abilities/schemas/get-users-
 
 export class ZodValidation extends BaseController {
   static getUsersAbilities(req: Request, res: Response, next: NextFunction) {
-    ZodValidation.execute(req, res, next, getUsersAbilitiesBodySchema);
+    ZodValidation.executeQuery(req, res, next, getUsersAbilitiesBodySchema);
   }
 
   static deleteUsersAbilities(req: Request, res: Response, next: NextFunction) {
@@ -58,6 +58,24 @@ export class ZodValidation extends BaseController {
       });
     }
 
+    next();
+  }
+
+  static executeQuery(
+    req: Request,
+    res: Response,
+    next: NextFunction,
+    schema: ZodObject,
+  ) {
+    const result = schema.safeParse(req.query);
+
+    if (result.success === false) {
+      return res
+        .status(400)
+        .json({ error: result.error.format(), status: 400 });
+    }
+
+    req.body = result.data;
     next();
   }
 

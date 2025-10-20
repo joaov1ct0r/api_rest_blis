@@ -1,9 +1,16 @@
 import { z } from 'zod';
 
 const getUsersAbilitiesBodySchema = z.object({
-  pageSize: z.coerce.number().default(20),
-  pageNumber: z.coerce.number().default(1),
-  skipAmount: z.coerce.number().default(0),
+  amount: z.coerce
+    .number({
+      error: 'Quantidade de itens desejados é obrigatório!',
+    })
+    .default(20),
+  page: z.coerce
+    .number({
+      error: 'Número da página atual é obrigatório!',
+    })
+    .default(1),
 });
 
 export { getUsersAbilitiesBodySchema };

@@ -11,14 +11,14 @@ export class GetUsersAbilitiesController extends BaseController {
   }
 
   public async execute(req: Request, res: Response) {
-    const { pageNumber, pageSize, skipAmount } = req.query;
+    const { page, amount } = req.query;
     const user_id = req.userId;
 
     const usersAbilities = await this.getUsersAbilitiesService.execute({
       user_id: String(user_id),
-      pageSize: Number(pageSize),
-      skipAmount: Number(skipAmount),
-      pageNumber: Number(pageNumber),
+      amount: Number(amount),
+      page: Number(page),
+      skipAmount: (Number(page) - 1) * Number(amount),
     });
 
     return res.status(200).json({

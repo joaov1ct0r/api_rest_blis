@@ -14,15 +14,15 @@ export class GetUsersAbilitiesByUserIdRepository
 {
   public async execute({
     user_id,
-    pageSize,
     skipAmount,
+    amount,
   }: IGetUsersAbilitiesByUserIdDTO): Promise<IUsersAbilitiesManyDTO[]> {
     const usersAbilities = await this.prisma.usersAbilities.findMany({
       where: { user_id },
       include: { abilities: true, user: true },
       orderBy: { createdAt: 'desc' },
-      take: pageSize,
-      skip: skipAmount,
+      take: isNaN(amount) ? 20 : amount,
+      skip: isNaN(skipAmount) ? 0 : skipAmount,
     });
 
     return usersAbilities;

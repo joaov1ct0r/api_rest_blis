@@ -1,6 +1,6 @@
 export interface IGetUsersAbilitiesByUserIdDTO {
   user_id: string;
-  pageSize: number;
+  amount: number;
   skipAmount: number;
-  pageNumber: number;
+  page: number;
 }
