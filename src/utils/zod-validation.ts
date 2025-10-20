@@ -8,8 +8,13 @@ import { createAbilityBodySchema } from '@abilities/schemas/create-ability-body-
 import { updateAbilityBodySchema } from '@abilities/schemas/update-ability-body-schema';
 import { createUsersAbilitiesBodySchema } from '@users-abilities/schemas/create-users-abilities-body-schema';
 import { deleteUsersAbilitiesBodySchema } from '@users-abilities/schemas/delete-users-abilities-body-schema';
+import { getUsersAbilitiesBodySchema } from '@users-abilities/schemas/get-users-abilities-body-schema';
 
 export class ZodValidation extends BaseController {
+  static getUsersAbilities(req: Request, res: Response, next: NextFunction) {
+    ZodValidation.execute(req, res, next, getUsersAbilitiesBodySchema);
+  }
+
   static deleteUsersAbilities(req: Request, res: Response, next: NextFunction) {
     ZodValidation.execute(req, res, next, deleteUsersAbilitiesBodySchema);
   }
