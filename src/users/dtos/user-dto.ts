@@ -1,33 +1,26 @@
 export interface IUserDTO {
   id: string;
   name: string;
-  birthdate: string;
+  birthdate: Date;
   email: string;
-  created_at: string;
-  updated_at: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export class UserDTO implements IUserDTO {
   public id: string;
   public name: string;
-  public birthdate: string;
+  public birthdate: Date;
   public email: string;
-  public created_at: string;
-  public updated_at: string;
+  public createdAt: Date;
+  public updatedAt: Date;
 
-  constructor({
-    id,
-    name,
-    birthdate,
-    email,
-    created_at,
-    updated_at,
-  }: IUserDTO) {
+  constructor({ id, name, birthdate, email, createdAt, updatedAt }: IUserDTO) {
     this.id = id;
     this.name = name;
     this.birthdate = birthdate;
     this.email = email;
-    this.created_at = created_at;
-    this.updated_at = updated_at;
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
   }
 }
