@@ -1,13 +1,14 @@
+import { upload } from '@utils/multer-config';
 import express, { type Router } from 'express';
 import { ZodValidation } from '@utils/zod-validation';
 import { authController } from '@auth/factories/index';
+import { authorization } from '@middlewares/authorization';
 import { createUserController } from '@users/factories/index';
 import { createUserDocumentsController } from '@documents/factories/index';
-import { upload } from '@utils/multer-config';
-import { authorization } from '@middlewares/authorization';
 import {
   createUsersAbilitiesController,
   deleteUsersAbilitiesController,
+  getUsersAbilitiesController,
 } from '@users-abilities/factories/index';
 
 export const userRouter: Router = express.Router();
@@ -30,6 +31,13 @@ userRouter.post(
   upload.single('document'),
   ZodValidation.createUserDocuments,
   createUserDocumentsController.execute.bind(createUserDocumentsController),
+);
+
+userRouter.get(
+  '/abilities',
+  authorization.execute,
+  ZodValidation.getUsersAbilities,
+  getUsersAbilitiesController.execute.bind(getUsersAbilitiesController),
 );
 
 userRouter.post(

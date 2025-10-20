@@ -1,8 +1,8 @@
+import { BaseService } from '@src/services/base-service';
+import { UsersAbilitiesMapper } from '@users-abilities/mappers/users-abilities-mapper';
 import { IUsersAbilitiesManyDTO } from '@users-abilities/dtos/users-abilities-many-dto';
 import { IGetUsersAbilitiesByUserIdDTO } from '@users-abilities/dtos/get-users-abilities-by-user-id-dto';
-import { BaseService } from '@src/services/base-service';
-import { IGetUsersAbilitiesByUserIdRepository } from '../repositories/get-users-abilities-by-user-id-repository';
-import { UsersAbilitiesMapper } from '../mappers/users-abilities-mapper';
+import { IGetUsersAbilitiesByUserIdRepository } from '@users-abilities/repositories/get-users-abilities-by-user-id-repository';
 
 export interface IGetUsersAbilitiesService {
   execute(
