@@ -1,10 +1,10 @@
-import { IUsersAbilitiesDTO } from '@users-abilities/dtos/users-abilities-dto';
 import { IUserDTO } from '@users/dtos/user-dto';
 import { IAbilityDTO } from '@abilities/dtos/ability-dto';
+import { IUsersAbilitiesDTO } from '@users-abilities/dtos/users-abilities-dto';
 
 export interface IUsersAbilitiesManyDTO extends IUsersAbilitiesDTO {
   user: IUserDTO;
-  ability: IAbilityDTO;
+  abilities: IAbilityDTO;
 }
 
 export class UsersAbilitiesManyDTO implements IUsersAbilitiesManyDTO {
@@ -16,7 +16,7 @@ export class UsersAbilitiesManyDTO implements IUsersAbilitiesManyDTO {
   public updatedAt: Date;
 
   public user: IUserDTO;
-  public ability: IAbilityDTO;
+  public abilities: IAbilityDTO;
 
   constructor({
     id,
@@ -26,7 +26,7 @@ export class UsersAbilitiesManyDTO implements IUsersAbilitiesManyDTO {
     createdAt,
     updatedAt,
     user,
-    ability,
+    abilities,
   }: IUsersAbilitiesManyDTO) {
     this.id = id;
     this.user_id = user_id;
@@ -35,6 +35,6 @@ export class UsersAbilitiesManyDTO implements IUsersAbilitiesManyDTO {
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
     this.user = user;
-    this.ability = ability;
+    this.abilities = abilities;
   }
 }
