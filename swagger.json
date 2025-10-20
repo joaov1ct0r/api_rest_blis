@@ -102,6 +102,37 @@
     },
 
     "/users/abilities": {
+      "get": {
+        "summary": "Obter todas habilidades vínculadas a um usuário",
+        "tags": ["UsersAbilities"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page"
+          },
+          {
+            "in": "query",
+            "name": "amount"
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "201": {
+            "description": "Dados obtidos com sucesso!",
+            "schema": {
+              "$ref": "#/definitions/UsersAbilitiesManyDTO"
+            }
+          },
+          "400": { "$ref": "#/responses/BadRequest" },
+          "401": { "$ref": "#/responses/Unauthorized" },
+          "403": { "$ref": "#/responses/Forbidden" }
+
+        },
+        "security": [
+          { "BearerAuth": [] }
+        ]
+      },
+
       "post": {
         "summary": "Adicionar uma habilidade a um usuário",
         "tags": ["UsersAbilities"],
@@ -232,9 +263,66 @@
     }
   },
   "definitions": {
+    "GetUsersAbilitiesByUserIdDTO": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string",
+          "example": "10"
+        },
+        "page": {
+          "type": "string",
+          "example": "1"
+        }
+      },
+      "required": true
+    },
+
+    "UsersAbilitiesManyDTO": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "c75f7c66-e858-47d6-bb82-7ea5547c800c"
+        },
+        "user_id": {
+          "type": "string",
+          "example": "c75f7c66-e858-47d6-bb82-7ea5547c800c"
+        },
+        "ability_id": {
+          "type": "string",
+          "example": "c75f7c66-e858-47d6-bb82-7ea5547c800c"
+        },
+        "years_experience": {
+          "type": "number",
+          "example": 3
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2001-09-15T03:00:00.000Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "example": "2001-09-15T03:00:00.000Z"
+        },
+        "user": {
+          "type": "object",
+          "$ref": "#/definitions/UserDTO"
+        },
+        "abilities": {
+          "type": "object",
+          "$ref": "#/definitions/AbilityDTO"
+        }
+      }
+    },
+
     "UsersAbilitiesDTO": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string",
+          "example": "c75f7c66-e858-47d6-bb82-7ea5547c800c"
+        },
         "user_id": {
           "type": "string",
           "example": "c75f7c66-e858-47d6-bb82-7ea5547c800c"
