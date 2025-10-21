@@ -25,6 +25,8 @@ export class GetUsersAbilitiesController extends BaseController {
       message: 'Habilidades do usuário obtidas com sucesso!',
       status: 200,
       resource: usersAbilities,
+      amount: isNaN(Number(amount)) ? 20 : Number(amount),
+      page: isNaN(Number(page)) ? 2 : Number(page) + 1,
     });
   }
 }
