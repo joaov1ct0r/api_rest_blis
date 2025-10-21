@@ -27,7 +27,8 @@
       "@common/*": ["src/common/*"],
       "@documents/*": ["src/documents/*"],
       "@abilities/*": ["src/abilities/*"],
-      "@users-abilities/*": ["src/users-abilities/*"]
+      "@users-abilities/*": ["src/users-abilities/*"],
+      "@ip-stack/*": ["src/ip-stack/*"]
     },
     "incremental": true,
     "skipLibCheck": true,

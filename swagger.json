@@ -236,6 +236,21 @@
           { "BearerAuth": [] }
         ]
       }
+    },
+    "/ip-stack": {
+      "get": {
+        "summary": "Obter dados sobre o seu IP(extra)",
+        "tags": ["extra"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Dados obtidos com sucesso!",
+            "schema": {
+              "$ref": "#/definitions/IpStackDTO"
+            }
+          }
+        }
+      }
     }
   },
   "responses": {
@@ -263,6 +278,70 @@
     }
   },
   "definitions": {
+    "IpStackDTO": {
+      "type": "object",
+      "properties": {
+        "ip": { "type": "string", "example": "179.251.61.90" },
+        "type": { "type": "string", "example": "ipv4" },
+        "continent_code": { "type": "string", "example": "SA" },
+        "continent_name": { "type": "string", "example": "South America" },
+        "country_code": { "type": "string", "example": "BR" },
+        "country_name": { "type": "string", "example": "Brazil" },
+        "region_code": { "type": "string", "example": "SP" },
+        "region_name": { "type": "string", "example": "Sao Paulo" },
+        "city": { "type": "string", "example": "Sao Paulo" },
+        "zip": { "type": "string", "example": "01001-000" },
+        "latitude": { "type": "number", "example": -23.5475 },
+        "longitude": { "type": "number", "example": -46.6361 },
+        "msa": { "type": ["string", "null"], "example": null },
+        "dma": { "type": ["string", "null"], "example": null },
+        "radius": { "type": "string", "example": "130.0494" },
+        "ip_routing_type": { "type": "string", "example": "mobile gateway" },
+        "connection_type": { "type": "string", "example": "mobile wireless" },
+        "location": {
+          "type": "object",
+          "properties": {
+            "geoname_id": { "type": "number", "example": 3448439 },
+            "capital": { "type": "string", "example": "Brasília" },
+            "languages": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "code": { "type": "string", "example": "pt" },
+                  "name": { "type": "string", "example": "Portuguese" },
+                  "native": { "type": "string", "example": "Português" }
+                }
+              }
+            },
+            "country_flag": { "type": "string", "example": "https://assets.ipstack.com/flags/br.svg" },
+            "country_flag_emoji": { "type": "string", "example": "🇧🇷" },
+            "country_flag_emoji_unicode": { "type": "string", "example": "U+1F1E7 U+1F1F7" },
+            "calling_code": { "type": "string", "example": "55" },
+            "is_eu": { "type": "boolean", "example": false }
+          }
+        }
+      },
+      "required": [
+        "ip",
+        "type",
+        "continent_code",
+        "continent_name",
+        "country_code",
+        "country_name",
+        "region_code",
+        "region_name",
+        "city",
+        "zip",
+        "latitude",
+        "longitude",
+        "radius",
+        "ip_routing_type",
+        "connection_type",
+        "location"
+      ]
+    },
+
     "GetUsersAbilitiesByUserIdDTO": {
       "type": "object",
       "properties": {
