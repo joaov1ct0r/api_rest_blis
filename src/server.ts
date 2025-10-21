@@ -6,6 +6,7 @@ import swaggerUi from 'swagger-ui-express';
 import { swaggerSpec } from '@utils/swagger-config';
 import { userRouter } from '@users/routes/user-routes';
 import { abilitiesRouter } from '@abilities/routes/ability-routes';
+import { ipStackRoutes } from '@ip-stack/routes/ip-stack-routes';
 import { ErrorHandler } from '@middlewares/error-handler';
 import swaggerDocument from '../swagger.json';
 
@@ -22,6 +23,7 @@ app.use(helmet());
 
 app.use('/users', userRouter);
 app.use('/abilities', abilitiesRouter);
+app.use('/ip-stack', ipStackRoutes);
 
 app.use(
   '/docs',
