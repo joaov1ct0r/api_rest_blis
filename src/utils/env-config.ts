@@ -12,6 +12,7 @@ const envSchema = z.object({
   PORT: z.coerce.number().int().positive().default(3000),
   HASH_SALT: z.coerce.number().int().positive().default(8),
   JWT_SECRET: z.coerce.string().min(1),
+  IP_STACK_ACCESS_KEY: z.coerce.string().min(1),
 });
 
 const parsedEnv = envSchema.safeParse(process.env);
