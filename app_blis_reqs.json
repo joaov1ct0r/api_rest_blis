@@ -1,0 +1,369 @@
+type: collection.insomnia.rest/5.0
+name: API Blis
+meta:
+  id: wrk_26654ecc26ab4f718608122c7eb5713a
+  created: 1760579645777
+  modified: 1760579645777
+  description: ""
+collection:
+  - name: users
+    meta:
+      id: fld_c51c8e9dfc9a4429957b458c48a7cf9b
+      created: 1760579656891
+      modified: 1760579656891
+      sortKey: -1760579656891
+      description: ""
+    children:
+      - url: http://localhost:3000/users/
+        name: Create User
+        meta:
+          id: req_c47f9be8246a4ae9ac1541fa4746b7f5
+          created: 1760579668436
+          modified: 1760600761313
+          isPrivate: false
+          description: ""
+          sortKey: -1760579668436
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "João Victor",
+            	"birthdate": "09/15/2001",
+            	"email": "admin@mail.com",
+            	"password": "0987654321"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/users/login
+        name: Auth User
+        meta:
+          id: req_98c1a9e208d344cfb8a684d9f72ca231
+          created: 1760600767629
+          modified: 1760678698055
+          isPrivate: false
+          description: ""
+          sortKey: -1760600767629
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"email": "admin@mail.com",
+            	"password": "0987654321"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_589070ef1f3f45a59fe44a828525a76d
+          - name: User-Agent
+            value: insomnia/11.6.1
+            id: pair_59135e74d5a84452b5e255fb21e827aa
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/users/documents
+        name: Upload File
+        meta:
+          id: req_8836b716117e43f48018c103a50cd6b8
+          created: 1760660548252
+          modified: 1761005087319
+          isPrivate: false
+          description: ""
+          sortKey: -1760660548252
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - id: pair_8f821f5eac5044e09bc6a509fc58574c
+              name: document
+              value: ""
+              description: ""
+              disabled: false
+              type: file
+              fileName: C:\Users\jov90\Downloads\JOÃO VICTOR DA SILVA GUEDES DOMINGOS - guia
+                de agendamento.pdf
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+            id: pair_6dbad0ad31c24a3d99321cb63251d940
+          - name: User-Agent
+            value: insomnia/11.6.1
+            id: pair_01151cde6b13490386f06a239e04fe78
+          - id: pair_1970656540144130b6327be720866541
+            name: authorization
+            value: Bearer
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1NGY5MDhhYy00YWRlLTQwYjgtOTYzNy1mMDE2MGY4NzNjMGQiLCJpYXQiOjE3NjEwMDQzNjMsImV4cCI6MzUyMjAxMjMyNn0.nSvxQsUJx1W4SeCgUz7hdkN5gZQEYPDwlpEbFwgnQ_c
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: abilities
+    meta:
+      id: fld_6a1284079a934768b70499b529091e55
+      created: 1760744965386
+      modified: 1760744965386
+      sortKey: -1760744965386
+      description: ""
+    children:
+      - url: http://localhost:3000/abilities/
+        name: Create ability
+        meta:
+          id: req_751ecf6541be4b9f9a1ddcdaccca772e
+          created: 1760744968974
+          modified: 1761004491577
+          isPrivate: false
+          description: ""
+          sortKey: -1760744968974
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Jogador de futebol"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_67f731a6849e4e489a709d53ebd8fe76
+          - name: User-Agent
+            value: insomnia/11.6.1
+            id: pair_5433327e9df24b36a37b469fff66e196
+          - id: pair_11d7f59052134d1eb0116980f763f9dc
+            name: authorization
+            value: Bearer
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1NGY5MDhhYy00YWRlLTQwYjgtOTYzNy1mMDE2MGY4NzNjMGQiLCJpYXQiOjE3NjEwMDQzNjMsImV4cCI6MzUyMjAxMjMyNn0.nSvxQsUJx1W4SeCgUz7hdkN5gZQEYPDwlpEbFwgnQ_c
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/abilities/
+        name: Update ability
+        meta:
+          id: req_8f830d47482048d1aec5ed448a1e1d09
+          created: 1760763331030
+          modified: 1761004430510
+          isPrivate: false
+          description: ""
+          sortKey: -1760763331030
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"active": true,
+            	"id": "0a27bba1-14f5-4fe2-935c-338231f69ca3"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+            id: pair_16c4ea506ad1461ab723c47380c0176c
+          - id: pair_eedc3bca33934919b5d0bd7d3a0104dd
+            name: authorization
+            value: Bearer
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhZDhlYmVjZi04Yjc4LTRiNTQtYWY3Ni02NmMxZWI5MTE2YjQiLCJpYXQiOjE3NjA3NDUwNzYsImV4cCI6MzUyMTQ5Mzc1Mn0.FCbjiVXtgvsyB3P-MB9Zewk_wuwJ0ecUjsFyjE8Tzkk
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: users abilities
+    meta:
+      id: fld_e8671e6fb3294c46843b5c30755cdeab
+      created: 1760916259436
+      modified: 1760916259436
+      sortKey: -1760916259436
+      description: ""
+    children:
+      - url: http://localhost:3000/users/abilities
+        name: Create users abilities
+        meta:
+          id: req_daa20e638bca4527a492c8f52b7f4957
+          created: 1760771373976
+          modified: 1761004609722
+          isPrivate: false
+          description: ""
+          sortKey: -1760916262121
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"ability_id": "2a8e2bc4-abaa-40f2-8be6-df0554c232dd",
+            	"user_id": "54f908ac-4ade-40b8-9637-f0160f873c0d",
+            	"years_experience": 3
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_c9475e3775e340e8ac3dfa665d1bb559
+          - name: User-Agent
+            value: insomnia/11.6.1
+            id: pair_29a4371e9a90477cad3d37ed6e01671e
+          - id: pair_adbc9a672ee7409baa3c59026a9db3ef
+            name: authorization
+            value: Bearer
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1NGY5MDhhYy00YWRlLTQwYjgtOTYzNy1mMDE2MGY4NzNjMGQiLCJpYXQiOjE3NjEwMDQzNjMsImV4cCI6MzUyMjAxMjMyNn0.nSvxQsUJx1W4SeCgUz7hdkN5gZQEYPDwlpEbFwgnQ_c
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/users/abilities
+        name: Delete users abilities
+        meta:
+          id: req_d3eef9137e2f4c83a0b2e6bb8529bf7b
+          created: 1760916262021
+          modified: 1761004645666
+          isPrivate: false
+          description: ""
+          sortKey: -1760916262021
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"ids": ["357f29b3-0f86-46fa-a789-91a5269232fc"]
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_8f087c99d9744b42a27c8f6bf153d851
+          - name: User-Agent
+            value: insomnia/11.6.1
+            id: pair_b2b95d54797141f39a2339ef186605e5
+          - id: pair_9e260de4d84d4b23a342f9cf28944080
+            name: authorization
+            value: Bearer
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1NGY5MDhhYy00YWRlLTQwYjgtOTYzNy1mMDE2MGY4NzNjMGQiLCJpYXQiOjE3NjEwMDQzNjMsImV4cCI6MzUyMjAxMjMyNn0.nSvxQsUJx1W4SeCgUz7hdkN5gZQEYPDwlpEbFwgnQ_c
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/users/abilities
+        name: Get users abilities
+        meta:
+          id: req_394a1289e1244595a1a96f95d7e866ae
+          created: 1760934265123
+          modified: 1761004658769
+          isPrivate: false
+          description: ""
+          sortKey: -1760934265123
+        method: GET
+        parameters:
+          - id: pair_c6b8fc57fdb4498289e6b277ca7a4bc3
+            name: page
+            value: "1"
+            description: ""
+            disabled: false
+          - id: pair_0db09e2f955b4a6ab9f443d1e68bd09f
+            name: amount
+            value: "20"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+            id: pair_d8bc383c008d463c998790058a6c4c2d
+          - id: pair_8b2b75d318ed47ccbe80b0788fd4967f
+            name: authorization
+            value: Bearer
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1NGY5MDhhYy00YWRlLTQwYjgtOTYzNy1mMDE2MGY4NzNjMGQiLCJpYXQiOjE3NjEwMDQzNjMsImV4cCI6MzUyMjAxMjMyNn0.nSvxQsUJx1W4SeCgUz7hdkN5gZQEYPDwlpEbFwgnQ_c
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: extra
+    meta:
+      id: fld_d84003b8bcae4f8c9f7acb7ea42c1ede
+      created: 1761007099899
+      modified: 1761007099899
+      sortKey: -1761007099899
+      description: ""
+    children:
+      - url: http://localhost:3000/ip-stack/
+        name: Get ip stack data
+        meta:
+          id: req_1a3249cbb3ee444a95989a767f7deafb
+          created: 1761005978664
+          modified: 1761007112500
+          isPrivate: false
+          description: ""
+          sortKey: -1761007105302
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_1d34c54c128a883176ecdf89c325edb4b6cd9104
+    created: 1760579645785
+    modified: 1760579645785
+environments:
+  name: Base Environment
+  meta:
+    id: env_1d34c54c128a883176ecdf89c325edb4b6cd9104
+    created: 1760579645783
+    modified: 1760579645783
+    isPrivate: false
